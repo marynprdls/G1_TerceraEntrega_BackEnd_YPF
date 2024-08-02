@@ -1,7 +1,7 @@
 /* exportación de datos de configuración */
-const config= require ('../../config/config');
+const {database}= require ('../../config/config');
 /* genero nueva instancia de sequelize */
-const { Sequelize, DataTypes, Op } = require('sequelize');
+const { Sequelize, DataTypes, Op, ForeignKeyConstraintError } = require('sequelize');
 
 const sequelize = new Sequelize(database.DB_NAME, database.DB_USER, database. DB_PASSWORD, {
     host: database.DB_HOST,
@@ -29,4 +29,10 @@ db.actores = require ("./actores.model")(sequelize,Sequelize,DataTypes);
 db.contenidos = require ("./contenidos.model")(sequelize,Sequelize,DataTypes);
 db.generos = require ("./generos.model")(sequelize,Sequelize,DataTypes);
 
-db.contenidos.belongsToMany()
+db.contenidos.belongsToMany(db.categorias,{
+  through: 'contenido_categoria',
+  ForeignKey:'categoria',
+  otherKey: 'categoriaId'
+})
+
+module.exports = db;

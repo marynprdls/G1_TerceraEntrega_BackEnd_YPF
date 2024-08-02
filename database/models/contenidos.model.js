@@ -6,7 +6,7 @@ const { Model, DataTypes, ForeignKeyConstraintError, Sequelize} = require ('sequ
 /* exportación de sequelize para conectar y desconectar a la base */
 
 const { conectar, cerrar} = require ('../conect_mysql_bd');
-const { defaultValueSchemable } = require('sequelize/lib/utils');
+const { defaultValueSchemable, underscoredIf } = require('sequelize/lib/utils');
 
 /* Definición de modelos*/
 
@@ -35,7 +35,6 @@ contenidos = Sequelize.define ('contenidos',{
     categoria: {
         type: DataTypes.INTEGER,
         ForeignKey: true,
-        FOREIGN KEY (categoria) REFERENCES categorias(categoriaId),
         allowNull: false
     },
 	resumen: {
@@ -50,14 +49,9 @@ contenidos = Sequelize.define ('contenidos',{
         type: DataTypes.STRING(255),
         allowNull: false
     },
-	 
-	{
-        timestamps: true,
-        underscrored:true,
-        createdAt: "created_at",
-        updatedAt: "updated_at"
-    }
-
+},{
+    timestamps: true,
+    underscored: true,
 });
 
 module.exports = contenidos;
