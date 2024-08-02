@@ -28,6 +28,5 @@ db.categorias = require ("./categorias.model")(sequelize,Sequelize,DataTypes);
 db.actores = require ("./actores.model")(sequelize,Sequelize,DataTypes);
 db.contenidos = require ("./contenidos.model")(sequelize,Sequelize,DataTypes);
 db.generos = require ("./generos.model")(sequelize,Sequelize,DataTypes);
-db.categoria_generos = require ("./categoria_generos.model")(sequelize,Sequelize,DataTypes);
-db.contenido_actores = require ("./contenido_actores.model")(sequelize,Sequelize,DataTypes);
-db.contenido_generos = require ("./contenido_generos.model")(sequelize,Sequelize,DataTypes);
+
+db.contenidos.belongsToMany()
