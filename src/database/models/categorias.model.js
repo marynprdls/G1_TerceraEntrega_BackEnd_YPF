@@ -6,6 +6,8 @@ const { DataTypes, Sequelize} = require ('sequelize');
 
 const { conectar, cerrar} = require ('../connect.js');
 
+import { contenidos } from './contenidos.model.js';
+
 /* Definición de modelos*/
 
 const categorias = Sequelize.define ('categorias',{
@@ -19,8 +21,25 @@ const categorias = Sequelize.define ('categorias',{
 	
     namecat: {
         type: DataTypes.STRING(50),
+        unique: true,
         allowNull: false
     },
+},
+{
+    timestamps:false
 });
 
 module.exports = categorias;
+
+/* relación de la categoria con los empleados */
+
+categorias.hasMany(contenidos,{
+    foreignKey: 'categoria',
+    sourceKey: 'categoriaId'
+}) 
+
+/* relación del contenido con la categoria */
+contenidos.belongsTo(categorias,{
+    foreignKey: 'categoria',
+    targetKey: 'categoriaId' /*clave objetivo*/
+}) 

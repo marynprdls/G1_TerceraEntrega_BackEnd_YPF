@@ -25,11 +25,6 @@ const contenidos = Sequelize.define ('contenidos',{
         type: DataTypes.STRING(100),
         allowNull: false
     },
-    categoria: {
-        type: DataTypes.INTEGER,
-        ForeignKey: true,
-        allowNull: false
-    },
 	resumen: {
         type: DataTypes.STRING,
         allowNull: false
