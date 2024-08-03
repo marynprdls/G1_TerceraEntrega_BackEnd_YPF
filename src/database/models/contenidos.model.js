@@ -1,21 +1,14 @@
-/* importación de model:permite establecer cual es el modelo
-datatypes: tipo de dato a establecer */
+/* importación de datatypes: tipo de dato a establecer */
 
-const { Model, DataTypes, ForeignKeyConstraintError, Sequelize} = require ('sequelize');
+const { DataTypes, Sequelize} = require ('sequelize');
 
-/* exportación de sequelize para conectar y desconectar a la base */
+/* importación de sequelize para conectar y desconectar a la base */
 
-const { conectar, cerrar} = require ('../conect_mysql_bd');
-const { defaultValueSchemable, underscoredIf } = require('sequelize/lib/utils');
+const { conectar, cerrar} = require ('../connect.js');
 
 /* Definición de modelos*/
 
-/* definición de clase */
-class contenidos extends Model {} /* model, atributo, permite crear atributos en el modelo*/
-
-/* defino la clase */
-
-contenidos = Sequelize.define ('contenidos',{
+const contenidos = Sequelize.define ('contenidos',{
     
     id: {
         type: DataTypes.UUID,

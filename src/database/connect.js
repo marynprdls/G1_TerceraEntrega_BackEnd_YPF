@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // conexión con info de base de datos
-const {database}= require ('../config/config');
+const {database}= require ('../../config/config.js');
 
 
 /* Establece conexion a base de datos */

@@ -1,5 +1,5 @@
 /* Extraccion de los modelos */
-const db = require("./database/models/index");
+const db = require("./src/database/models/index");
 /* inicializa y sincroniza la base de datos */
 db.sequelize.sync().then( () => {
     initial(); // primera ejecucion, elimina lo que hay, y establece nuevos modelos
