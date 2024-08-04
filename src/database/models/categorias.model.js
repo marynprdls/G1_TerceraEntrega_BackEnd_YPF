@@ -42,9 +42,3 @@ contenidos.belongsTo(categorias,{
     foreignKey: 'categoria',
     targetKey: 'categoriaId' /*clave objetivo*/
 }) 
-
-/*sincronización con base de datos, funciones que sincronizan 
-los cambios que tenga el modelo con la base de datos */
-
-await categorias.sync()
-await contenidos.sync()
