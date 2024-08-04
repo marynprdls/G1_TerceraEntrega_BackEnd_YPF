@@ -6,22 +6,28 @@ const { DataTypes, Sequelize} = require ('sequelize');
 
 import sequelize from '../connect.js';
 
+import {contenidos} from './contenidos.model.js';
+import {generos} from './generos.model.js';
+
 /* Definición de modelos*/
 
-const generos = Sequelize.define ('generos',{
-    
+const contenido_generos = Sequelize.define ('contenido_generos',{
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
     }, 
-	
-    namegender: {
-        type: DataTypes.STRING(50),
-        allowNull: false
-    },
-
 });
 
-module.exports = generos;
+module.exports = contenido_generos;
+
+
+// relaciones genero una tabla aux 
+generos.belongsToMany(contenidos, {
+    through: 'contenido_generos'
+});
+
+contenidos.belongsToMany(generos, {
+    through: 'contenido_generos'
+});

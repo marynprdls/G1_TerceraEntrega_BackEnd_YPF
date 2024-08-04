@@ -5,7 +5,10 @@ import {sequelize} from './database/connect.js';
 
 import ContenidosRouter from '../controllers/contenidos.js';
 import CategoriasRouter from '../controllers/categoria.js';
+import GenerosRouter from '../controllers/generos.js';
+import ActoresRouter from '../controllers/actores.js';
 import ContenidoActoresRouter from '../controllers/contenido_actores.js';
+import ContenidoGenerosRouter from '../controllers/contenido_generos.js'
 
 const app = express();
 const PORT = require('../config/config.js');
@@ -30,8 +33,14 @@ app.get('/', (req, res) => {
 app.use(ContenidosRouter);
 //Ruta a controlador de categorias
 app.use(CategoriasRouter);
+//Ruta a controlador de generos
+app.use(GenerosRouter);
+//Ruta a controlador de actores
+app.use(ActoresRouter);
 //Ruta a controlador de contenido_actores
 app.use(ContenidoActoresRouter);
+//Ruta a controlador de contenido_generos
+app.use(ContenidoGenerosRouter);
 
 
 //respuesta para rutas inexistentes 
