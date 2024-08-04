@@ -4,7 +4,7 @@ const { DataTypes, Sequelize} = require ('sequelize');
 
 /* importación de sequelize para conectar y desconectar a la base */
 
-const { conectar, cerrar} = require ('../connect.js');
+import sequelize from '../connect.js';
 
 /* Definición de modelos*/
 

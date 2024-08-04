@@ -1,7 +1,7 @@
 const express = require('express');
 const CategoriasRouter = express.Router();
 
-const Categorias = require('../src/database/models/contenidos.model.js');
+const Categorias = require('../src/database/models/categorias.model');
 
 // INDEX /api/categoria
 CategoriasRouter.get('/', (req, res) => {

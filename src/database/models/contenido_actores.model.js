@@ -6,25 +6,28 @@ const { DataTypes, Sequelize} = require ('sequelize');
 
 import sequelize from '../connect.js';
 
+import {contenidos} from './contenidos.model.js';
+import {actores} from './actores.model.js';
+
 /* Definición de modelos*/
 
-const actores = Sequelize.define ('actores',{
-    
+const contenido_actores = Sequelize.define ('contenido_actores',{
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
     }, 
-	
-    nameact: {
-        type: DataTypes.STRING (100),
-        unique: true,
-        allowNull: false
-    },
-
-},{
-    timestamps: false
 });
 
-module.exports = actores;
+module.exports = contenido_actores;
+
+
+// relaciones genero una tabla aux 
+actores.belongsToMany(contenidos, {
+    through: 'contenido_actores'
+});
+
+contenidos.belongsToMany(actores, {
+    through: 'contenido_actores'
+});
