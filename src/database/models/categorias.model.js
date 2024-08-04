@@ -3,8 +3,7 @@
 const { DataTypes, Sequelize} = require ('sequelize');
 
 /* importación de sequelize para conectar y desconectar a la base */
-
-const { conectar, cerrar} = require ('../connect.js');
+const{sequelize} = require ('../connect.js');
 
 import { contenidos } from './contenidos.model.js';
 
@@ -43,3 +42,9 @@ contenidos.belongsTo(categorias,{
     foreignKey: 'categoria',
     targetKey: 'categoriaId' /*clave objetivo*/
 }) 
+
+/*sincronización con base de datos, funciones que sincronizan 
+los cambios que tenga el modelo con la base de datos */
+
+await categorias.sync()
+await contenidos.sync()

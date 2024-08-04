@@ -17,6 +17,14 @@ const sequelize = new Sequelize(database.DB_NAME, database.DB_USER, database. DB
   });
 
 /* función para autenticar la conexión a la base de datos. */
+
+sequelize.authenticate().then(() => {
+  console.log('Conexión a la base de datos establecida correctamente.');
+}).catch((error) => {
+  console.error('Error al conectar a la base de datos:', error);
+});
+
+/*
 async function conectar () {
   try{
     await sequelize.authenticate();
@@ -26,8 +34,16 @@ async function conectar () {
     console.error('Error al conectar a la base de datos:',error);
   }
 }
+  */
+
 // Función para desconectarse de la db.
-async function cerrar () {
+sequelize.close().then(() => {
+  console.log('Conexión cerrada correctamente.');
+}).catch((error) => {
+  console.error('Error al cerrar la conexión', error);
+});
+
+/* async function cerrar () {
   try{
     await sequelize.close();
     console.log ('Conexión cerrada correctamente.');
@@ -36,5 +52,7 @@ async function cerrar () {
     console.error('Error al cerrar la conexión',error);
   }
 }
+*/
 
-module.exports = {conectar, cerrar};
+module.exports = sequelize;
+/* module.exports = {conectar, cerrar}; */
