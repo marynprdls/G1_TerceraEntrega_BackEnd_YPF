@@ -1,4 +1,31 @@
-// Servidor. 
+const db = require("./database/models/index")
+
+db.sequelize.sync().then(()=>{
+    initial();
+}).catch(err=>{
+    console.log("Error syncing database",err);
+});
+
+const Genero=db.generos;
+const Contenido=db.contenidos;
+
+
+function initial(){
+
+    Genero.create({namegender:"peliculas"})
+    Genero.create({namegender:"series"})
+    Contenido.create({
+        poster: "poster",
+        titulo: "titulos",
+        resumen: "remuesito",
+        temporadas: 2,
+        generoId:1
+    })
+}
+
+
+
+/* // Servidor. 
 const express = require('express');
 
 import {sequelize} from './database/connect.js';
@@ -52,4 +79,4 @@ app.get('*', (req, res) => {
 // Inicia el servidor.
 app.listen(PORT, () => {
     console.log(`Servidor iniciado en el puerto http://localhost:${PORT}`);
-});
+}); */

@@ -3,17 +3,22 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // conexión con info de base de datos
-const {database}= require ('../../config/config.js');
+const {database}= require ('../config/config');
 
 
 /* Establece conexion a base de datos */
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize(database.DB_NAME, database.DB_USER, database. DB_PASSWORD, {
+const sequelize = new Sequelize(
+  database.DB_NAME, 
+  database.DB_USER, 
+  database.DB_PASSWORD, {
+
     host: database.DB_HOST,
     dialect: database.DB_DIALECT,
     dialectOptions:{options:{encrypt:true}},
     define:{timestamps:false}
+
   });
 
 /* función para autenticar la conexión a la base de datos. */

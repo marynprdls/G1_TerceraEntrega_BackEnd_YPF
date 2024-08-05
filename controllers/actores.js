@@ -21,7 +21,7 @@ ActoresRouter.post('/', (req, res) => {
         res.json(reparto);
     })
 });
-
+                                    
 // READ /api/reparto/:id
 ActoresRouter.get('/:id', (req, res) => {
     Actores.findByPk(req.params.id).then(reparto => {
