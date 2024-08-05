@@ -1,14 +1,14 @@
 /* importación de datatypes: tipo de dato a establecer */
 
-const { DataTypes, Sequelize} = require ('sequelize');
+const { DataTypes} = require ('sequelize');
 
 /* importación de sequelize para conectar y desconectar a la base */
 
-import sequelize from '../connect.js';
+const sequelize = require ('../../connect.js');
 
 /* Definición de modelos*/
 
-const generos = Sequelize.define ('generos',{
+const generos = sequelize.define ('generos',{
     
     id: {
         type: DataTypes.INTEGER,

@@ -1,7 +1,7 @@
 const express = require('express');
 const GenerosRouter = express.Router();
 
-const Generos = require('../src/database/models/generos.model');
+const Generos = require('../src/database/models/generos.model.js');
 
 // INDEX /api/generos
 GenerosRouter.get('/', (req, res) => {

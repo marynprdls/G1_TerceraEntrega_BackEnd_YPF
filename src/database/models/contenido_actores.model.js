@@ -1,17 +1,17 @@
 /* importación de datatypes: tipo de dato a establecer */
 
-const { DataTypes, Sequelize} = require ('sequelize');
+const { DataTypes} = require ('sequelize');
 
 /* importación de sequelize para conectar y desconectar a la base */
 
-import sequelize from '../connect.js';
+const sequelize = require ('../../connect.js');
 
-import {contenidos} from './contenidos.model.js';
-import {actores} from './actores.model.js';
+const contenidos = require ('./contenidos.model.js');
+const actores = require ('./actores.model.js');
 
 /* Definición de modelos*/
 
-const contenido_actores = Sequelize.define ('contenido_actores',{
+const contenido_actores = sequelize.define ('contenido_actores',{
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -31,3 +31,8 @@ actores.belongsToMany(contenidos, {
 contenidos.belongsToMany(actores, {
     through: 'contenido_actores'
 });
+
+//sincronización de modelos
+ contenidos.sync()
+actores.sync()
+contenido_actores.sync()

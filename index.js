@@ -1,22 +1,32 @@
 // Servidor. 
 const express = require('express');
+const bodyParser = require('body-parser');
 
-import {sequelize} from './database/connect.js';
-
-import ContenidosRouter from '../controllers/contenidos.js';
-import CategoriasRouter from '../controllers/categoria.js';
-import GenerosRouter from '../controllers/generos.js';
-import ActoresRouter from '../controllers/actores.js';
-import ContenidoActoresRouter from '../controllers/contenido_actores.js';
-import ContenidoGenerosRouter from '../controllers/contenido_generos.js'
+const config = require('./config/config.js'); // Ref app listen
 
 const app = express();
-const PORT = require('../config/config.js');
 
-// Para evitar TypeError: Cannot read property '_id' of undefined.
-const bodyParser = require('body-parser');
+//sincronizacion modelos
+const catmod=require ('./src/database/models/categorias.model.js');
+const contmod=require('./src/database/models/contenido_actores.model.js');
+const contgen =require ('./src/database/models/contenido_generos.model.js');
+
+//rutas
+const ContenidosRouter =require ('./controllers/contenidos.js');
+const CategoriasRouter = require ('./controllers/categoria.js');
+const GenerosRouter = require ('./controllers/generos.js');
+const ActoresRouter = require ('./controllers/actores.js');
+const ContenidoActoresRouter = require ('./controllers/contenido_actores.js');
+const ContenidoGenerosRouter = require ('./controllers/contenido_generos.js');
+
+// parse requests of content-type - application/json
 app.use(bodyParser.json());
+
+// parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
+
+const PORT = config.PORT;
+
 
 // Middleware.
 app.use((req, res, next) => {
@@ -28,6 +38,8 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
     res.status(200).end('Bienvenid@ a la API');
 });
+
+//rutas apps
 
 //Ruta a controlador de contenidos
 app.use(ContenidosRouter);

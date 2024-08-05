@@ -1,18 +1,17 @@
 /* importación de datatypes: tipo de dato a establecer */
 
-const { DataTypes, Sequelize} = require ('sequelize');
+const { DataTypes} = require ('sequelize');
 
 /* importación de sequelize para conectar y desconectar a la base */
 
-const{sequelize} = require ('../connect.js');
+const sequelize = require ('../../connect.js');
 
 /* Definición de modelos*/
 
-const contenidos = Sequelize.define ('contenidos',{
+const contenidos = sequelize.define ('contenidos',{
     
     id: {
-        type: DataTypes.UUID,
-        defaultValue: Sequelize.UUIDV4,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false

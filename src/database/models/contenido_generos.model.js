@@ -1,17 +1,17 @@
 /* importación de datatypes: tipo de dato a establecer */
 
-const { DataTypes, Sequelize} = require ('sequelize');
+const { DataTypes} = require ('sequelize');
 
 /* importación de sequelize para conectar y desconectar a la base */
 
-import sequelize from '../connect.js';
+const sequelize = require ('../../connect.js');
 
-import {contenidos} from './contenidos.model.js';
-import {generos} from './generos.model.js';
+const contenidos = require ('./contenidos.model.js');
+const generos = require ('./generos.model.js');
 
 /* Definición de modelos*/
 
-const contenido_generos = Sequelize.define ('contenido_generos',{
+const contenido_generos = sequelize.define ('contenido_generos',{
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -31,3 +31,8 @@ generos.belongsToMany(contenidos, {
 contenidos.belongsToMany(generos, {
     through: 'contenido_generos'
 });
+
+//sincronización de modelos
+contenidos.sync()
+generos.sync()
+contenido_generos.sync()

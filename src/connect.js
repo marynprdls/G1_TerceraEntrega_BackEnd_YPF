@@ -1,19 +1,14 @@
-// ENVIRONMENT
-const dotenv = require('dotenv');
-dotenv.config();
-
-// conexión con info de base de datos
-const {database}= require ('../../config/config.js');
 
 
 /* Establece conexion a base de datos */
 const { Sequelize } = require('sequelize');
+// conexión con info de base de datos
+const {db}= require ('../config/config.js');
 
-const sequelize = new Sequelize(database.DB_NAME, database.DB_USER, database. DB_PASSWORD, {
-    host: database.DB_HOST,
-    dialect: database.DB_DIALECT,
-    dialectOptions:{options:{encrypt:true}},
-    define:{timestamps:false}
+const sequelize = new Sequelize(db.DB_NAME,db.DB_USER,db.DB_PASSWORD, {
+    host: db.DB_HOST,
+    port: db.DB_PORT,
+    dialect: db.DB_DIALECT
   });
 
 /* función para autenticar la conexión a la base de datos. */
@@ -37,11 +32,13 @@ async function conectar () {
   */
 
 // Función para desconectarse de la db.
+/*
 sequelize.close().then(() => {
   console.log('Conexión cerrada correctamente.');
 }).catch((error) => {
   console.error('Error al cerrar la conexión', error);
 });
+*/
 
 /* async function cerrar () {
   try{

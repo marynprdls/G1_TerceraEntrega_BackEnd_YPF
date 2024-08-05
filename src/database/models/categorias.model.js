@@ -1,17 +1,15 @@
 /* importación de datatypes: tipo de dato a establecer */
 
-const { DataTypes, Sequelize} = require ('sequelize');
+const { DataTypes} = require ('sequelize');
 
 /* importación de sequelize para conectar y desconectar a la base */
-const{sequelize} = require ('../connect.js');
-
-import { contenidos } from './contenidos.model.js';
+const sequelize = require ('../../connect.js');
 
 /* Definición de modelos*/
 
-const categorias = Sequelize.define ('categorias',{
+const categorias = sequelize.define('categorias',{
     
-    categoriaId: {
+    id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -30,15 +28,22 @@ const categorias = Sequelize.define ('categorias',{
 
 module.exports = categorias;
 
-/* relación de la categoria con los empleados */
+// Relacion uno a muchos de contenidos y categorias
+const contenidos = require ('./contenidos.model.js');
+
+/* relación de la categoria con los contenidos */
 
 categorias.hasMany(contenidos,{
-    foreignKey: 'categoria',
-    sourceKey: 'categoriaId'
-}) 
+    foreignKey: 'idcategoria',
+    sourceKey: 'id'
+});
 
 /* relación del contenido con la categoria */
 contenidos.belongsTo(categorias,{
-    foreignKey: 'categoria',
-    targetKey: 'categoriaId' /*clave objetivo*/
-}) 
+    foreignKey: 'idcategoria',
+    targetKey: 'id' /*clave objetivo*/
+});
+
+//sincronización de modelos
+ contenidos.sync()
+ categorias.sync()
