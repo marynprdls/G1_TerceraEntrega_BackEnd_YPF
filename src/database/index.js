@@ -1,5 +1,6 @@
+const {datab} = require('../../config.js');
 const { Sequelize, DataTypes, Op } = require("sequelize");
-const { datab } = require('../../config.js');
+
 
 const sequelize = new Sequelize(
     datab.DB_NAME, 
@@ -65,13 +66,5 @@ contenidos.belongsToMany(generos, {
     through: 'contenido_generos'
 });
 
-
-
-// Sync database and call initial function
-sequelize.sync().then(() => {
-    
-}).catch(err => {
-    console.error("Error syncing database:", err);
-});
-
 module.exports = db;
+

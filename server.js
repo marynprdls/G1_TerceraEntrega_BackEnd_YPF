@@ -15,12 +15,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const PORT = config.PORT;
 
+// database
+const db = require("./src/connect.js");
 
-// Middleware.
-app.use((req, res, next) => {
-    res.header('Content-Type', 'application/json; charset=utf-8');
-    next();
-})
+db.sequelize.sync().then(() => {
+ // initial(); // Just use it in development, at the first time execution!. Delete it in production
+});
+
 
 // Ruta raiz.
 app.get('/', (req, res) => {
