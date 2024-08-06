@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const PORT = config.PORT;
 
 // database
-const db = require("./src/connect.js");
+const db = require("./src/database/index.js");
 
 db.sequelize.sync().then(() => {
  // initial(); // Just use it in development, at the first time execution!. Delete it in production
@@ -30,12 +30,14 @@ app.get('/', (req, res) => {
 
 //rutas apps
 //rutas
+/*
 require ('./controllers/contenidos.js')(app);
 require ('./controllers/categoria.js')(app);
 require ('./controllers/generos.js')(app);
 require ('./controllers/actores.js')(app);
 require ('./controllers/contenido_actores.js')(app);
 require ('./controllers/contenido_generos.js')(app);
+*/
 
 
 

@@ -1,12 +1,4 @@
-/* importación de datatypes: tipo de dato a establecer */
-
-const { DataTypes} = require ('sequelize');
-
-/* importación de sequelize para conectar y desconectar a la base */
-
-const sequelize = require ('../../connect.js');
-
-/* Definición de modelos*/
+module.exports = (sequelize, Sequelize, DataTypes) => {
 
 const actores = sequelize.define ('actores',{
     
@@ -27,4 +19,7 @@ const actores = sequelize.define ('actores',{
     timestamps: false
 });
 
-module.exports = actores;
+
+return actores;
+
+}

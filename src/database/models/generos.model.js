@@ -1,13 +1,4 @@
-/* importación de datatypes: tipo de dato a establecer */
-
-const { DataTypes} = require ('sequelize');
-
-/* importación de sequelize para conectar y desconectar a la base */
-
-const sequelize = require ('../../connect.js');
-
-/* Definición de modelos*/
-
+module.exports = (sequelize, Sequelize, DataTypes) => { 
 const generos = sequelize.define ('generos',{
     
     id: {
@@ -24,4 +15,7 @@ const generos = sequelize.define ('generos',{
 
 });
 
-module.exports = generos;
+return generos;
+
+}
+ 

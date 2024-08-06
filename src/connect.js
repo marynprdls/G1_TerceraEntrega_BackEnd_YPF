@@ -3,7 +3,7 @@
 /* Establece conexion a base de datos */
 const { Sequelize } = require('sequelize');
 // conexión con info de base de datos
-const {datab}= require ('../config.js');
+const {datab}= require ('../config');
 
 const sequelize = new Sequelize(datab.DB_NAME, datab.DB_USER, datab.DB_PASSWORD, {
     host: datab.DB_HOST,
