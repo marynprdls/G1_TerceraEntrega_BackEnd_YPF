@@ -16,7 +16,11 @@ const contenido_actores = sequelize.define ('contenido_actores',{
         autoIncrement: true,
         allowNull: false
     }, 
-});
+},
+{
+    timestamps:true,
+}
+);
 
 module.exports = contenido_actores;
 

@@ -1,10 +1,8 @@
 [
     {
-       "id": 3,
        "poster": "./posters/3.jpg",
        "titulo": "The Mandalorian",
        "categoria": "Serie",
-       "tags": "Sci-Fi, Fantasía, Acción",
        "genero": "Ciencia Ficción",
        "resumen": "Ambientada tras la caída del Imperio y antes de la aparición de la Primera Orden, la Serie sigue los pasos de un pistolero solitario en las aventuras que protagoniza en los confines de la galaxia, donde no alcanza la autoridad de la Nueva República.",
        "temporadas": 2,

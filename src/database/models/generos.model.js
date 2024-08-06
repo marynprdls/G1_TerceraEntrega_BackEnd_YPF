@@ -13,6 +13,9 @@ const generos = sequelize.define ('generos',{
         allowNull: false
     },
 
+},
+{
+    timestamps:false
 });
 
 return generos;

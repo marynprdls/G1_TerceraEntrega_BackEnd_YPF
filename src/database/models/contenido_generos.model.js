@@ -17,6 +17,9 @@ const contenido_generos = sequelize.define ('contenido_generos',{
         autoIncrement: true,
         allowNull: false
     }, 
+},
+{
+    timestamps:false
 });
 
 module.exports = contenido_generos;
