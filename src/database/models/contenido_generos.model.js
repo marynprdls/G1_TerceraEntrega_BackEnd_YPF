@@ -6,8 +6,7 @@ const { DataTypes} = require ('sequelize');
 
 const sequelize = require ('../../connect.js');
 
-const contenidos = require ('./contenidos.model.js');
-const generos = require ('./generos.model.js');
+
 
 /* Definición de modelos*/
 
@@ -22,17 +21,3 @@ const contenido_generos = sequelize.define ('contenido_generos',{
 
 module.exports = contenido_generos;
 
-
-// relaciones genero una tabla aux 
-generos.belongsToMany(contenidos, {
-    through: 'contenido_generos'
-});
-
-contenidos.belongsToMany(generos, {
-    through: 'contenido_generos'
-});
-
-//sincronización de modelos
-contenidos.sync()
-generos.sync()
-contenido_generos.sync()

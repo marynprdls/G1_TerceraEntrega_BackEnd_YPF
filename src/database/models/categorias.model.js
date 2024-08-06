@@ -28,22 +28,5 @@ const categorias = sequelize.define('categorias',{
 
 module.exports = categorias;
 
-// Relacion uno a muchos de contenidos y categorias
-const contenidos = require ('./contenidos.model.js');
 
-/* relación de la categoria con los contenidos */
 
-categorias.hasMany(contenidos,{
-    foreignKey: 'idcategoria',
-    sourceKey: 'id'
-});
-
-/* relación del contenido con la categoria */
-contenidos.belongsTo(categorias,{
-    foreignKey: 'idcategoria',
-    targetKey: 'id' /*clave objetivo*/
-});
-
-//sincronización de modelos
- contenidos.sync()
- categorias.sync()
