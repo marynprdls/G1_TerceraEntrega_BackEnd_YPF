@@ -1,9 +1,7 @@
 // Servidor. 
 const express = require('express');
 const bodyParser = require('body-parser');
-
 const config = require('./config.js'); // Ref app listen
-
 const app = express();
 
 
@@ -51,6 +49,15 @@ http://localhost:3008/api/contenido/contenidos ---->(get)
 const content= require ('./controllers/contenidos.js');
 
 app.use('/api/contenido', content);
+
+const content2= require ('./controllers/generos.js');
+
+app.use('/api/genero', content2);
+
+const content3= require ('./controllers/contenido_generos.js');
+
+app.use('/api/contenidosgeneros', content3);
+
 
 /*
 2- Ver información de actrices/actores y sus trabajos fílmicos.

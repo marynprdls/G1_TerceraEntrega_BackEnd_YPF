@@ -1,20 +1,50 @@
 const express = require('express');
 const ContenidoGenerosRouter = express.Router();
+const db = require("../src/database/models");
+    
+    const Generos = db.generos;
+    const Contenido = db.contenidos;
+    const categoria = db.categorias;
+    const Actores = db.actores;
+    const Op = db.Op;
 
-const Contenidos = require('../src/database/models/contenidos.model.js');
-const Generos = require('../src/database/models/generos.model.js')
-const Contenido_generos = require('../src/database/models/contenido_generos.model.js')
+ContenidoGenerosRouter.get('/genero', (req, res) => {
+        Generos.findAll({
+            include:{
+                model:Contenido,
+                through:{
+                    // si no tiene nada [] no se incluye atributos de la tabla union
+                    attributes: []
+                }
+        }})
+                .then(data => {
+                    res.send(data);
+                })
+                .catch(err => {
+                    res.send(500).send({
+                        message:err.message || "algo malo paso cuando se trajeron los datos"
+                    })
+                })
+        })
 
-ContenidoGenerosRouter.get('/contenido/genero', (req, res) => {
-    Generos.findAll().then(contenido => {
-        res.json(contenido);
-    })
-});
-
-ContenidoGenerosRouter.get('/genero/contenido', (req, res) => {
-    Contenidos.findAll().then(genero => {
-        res.json(genero);
-    })
+ContenidoGenerosRouter.get('/contenido', (req, res) => {
+    Contenido.findAll({
+        include:{
+            model:Generos,
+            attributes: ['namegender'],
+            through:{
+                // si no tiene nada [] no se incluye atributos de la tabla union
+                attributes: []
+            }
+    }})
+            .then(data => {
+                res.send(data);
+            })
+            .catch(err => {
+                res.send(500).send({
+                    message:err.message || "algo malo paso cuando se trajeron los datos"
+                })
+            })
 });
 
 
