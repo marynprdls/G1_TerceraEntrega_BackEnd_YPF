@@ -1,4 +1,5 @@
 use trailerflix;
+
 -- Insertar en la tabla `actores`
 INSERT INTO actores (nameact) VALUES
 ('Leonardo DiCaprio'),
@@ -15,7 +16,7 @@ INSERT INTO actores (nameact) VALUES
 -- Insertar en la tabla `categorias`
 INSERT INTO categorias (namecat) VALUES
 ('Pelicula'),
-('Serie'),
+('Serie');
 
 -- Insertar en la tabla `genero`
 INSERT INTO generos (namegender) VALUES
@@ -33,14 +34,14 @@ INSERT INTO generos (namegender) VALUES
 -- Insertar en la tabla `contenidos`
 INSERT INTO contenidos (poster, titulo, resumen, trailer, temporadas, idcategoria) VALUES
 ('poster1.jpg', 'Inception', 'Un ladrón especializado en la extracción de secretos de los sueños.', 'trailer1.mp4', 1, 1),
-('poster2.jpg', 'Black Swan', 'Una joven bailarina se enfrenta a sus propios demonios.', 'trailer2.mp4', 1, 2),
-('poster3.jpg', 'The Matrix', 'Un hacker descubre la verdad detrás de la realidad.', 'trailer3.mp4', 1, 4),
+('poster2.jpg', 'Black Swan', 'Una joven bailarina se enfrenta a sus propios demonios.', 'trailer2.mp4', 1, 1),
+('poster3.jpg', 'The Matrix', 'Un hacker descubre la verdad detrás de la realidad.', 'trailer3.mp4', 1, 1),
 ('poster4.jpg', 'The Avengers', 'Un grupo de superhéroes se une para salvar al mundo.', 'trailer4.mp4', 1, 1),
-('poster5.jpg', 'La La Land', 'Una historia de amor entre una aspirante a actriz y un músico.', 'trailer5.mp4', 1, 9),
-('poster6.jpg', 'The Conjuring', 'Una familia enfrenta una fuerza demoníaca en su hogar.', 'trailer6.mp4', 1, 6),
-('poster7.jpg', 'Frozen', 'Dos hermanas luchan contra un hechizo de hielo en su reino.', 'trailer7.mp4', 1, 10),
+('poster5.jpg', 'La La Land', 'Una historia de amor entre una aspirante a actriz y un músico.', 'trailer5.mp4', 1, 1),
+('poster6.jpg', 'The Conjuring', 'Una familia enfrenta una fuerza demoníaca en su hogar.', 'trailer6.mp4', 1, 1),
+('poster7.jpg', 'Frozen', 'Dos hermanas luchan contra un hechizo de hielo en su reino.', 'trailer7.mp4', 1, 1),
 ('poster8.jpg', 'Joker', 'La transformación de un hombre en el infame villano del cómic.', 'trailer8.mp4', 1, 2),
-('poster9.jpg', 'Interstellar', 'Un equipo de exploradores viaja a través de un agujero de gusano en busca de un nuevo hogar.', 'trailer9.mp4', 1, 4),
+('poster9.jpg', 'Interstellar', 'Un equipo de exploradores viaja a través de un agujero de gusano en busca de un nuevo hogar.', 'trailer9.mp4', 1,2),
 ('poster10.jpg', 'Parasite', 'Una familia pobre se infiltra en la vida de una familia rica.', 'trailer10.mp4', 1, 2);
 
 -- Insertar en la tabla `contenido_actores`
