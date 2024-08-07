@@ -31,18 +31,35 @@ app.get('/', (req, res) => {
 //rutas apps
 //rutas
 /*
-require ('./controllers/contenidos.js')(app);
-require ('./controllers/categoria.js')(app);
+
+
+const cat =require ('./controllers/categoria.js');
 require ('./controllers/generos.js')(app);
 require ('./controllers/actores.js')(app);
-require ('./controllers/contenido_actores.js')(app);
+
 require ('./controllers/contenido_generos.js')(app);
 */
+
 /* 
 ENDPOINTS
-Ver información de películas y series.
+///////
+
+// Ver información de películas y series.
+http://localhost:3008/api/contenido/contenidos ---->(get)
+*/
+
+const content= require ('./controllers/contenidos.js');
+
+app.use('/api/contenido', content);
+
+/*
 Ver información de actrices/actores y sus trabajos fílmicos.
+//llamar a controlador contenido_actores 
+
+
 Filtrar por una película o serie específica.
+
+
 Ver solo películas.
 Ver solo series.
 Otros endpoints que consideres necesarios.

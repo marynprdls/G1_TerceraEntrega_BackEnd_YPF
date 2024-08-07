@@ -13,16 +13,8 @@ INSERT INTO actores (nameact) VALUES
 
 -- Insertar en la tabla `categorias`
 INSERT INTO categorias (namecat) VALUES
-('Acción'),
-('Drama'),
-('Comedia'),
-('Ciencia Ficción'),
-('Romántico'),
-('Terror'),
-('Aventura'),
-('Documental'),
-('Animación'),
-('Musical');
+('Pelicula'),
+('Serie'),
 
 -- Insertar en la tabla `genero`
 INSERT INTO generos (namegender) VALUES
