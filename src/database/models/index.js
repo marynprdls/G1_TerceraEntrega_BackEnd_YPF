@@ -1,4 +1,4 @@
-const {datab} = require('../../config.js');
+const {datab} = require('../../../config.js');
 const { Sequelize, DataTypes, Op } = require("sequelize");
 
 
@@ -20,10 +20,10 @@ db.Sequelize = Sequelize;
 db.Op = Op;
 db.sequelize = sequelize;
 // incializo las tablas
-db.contenidos = require ('./models/contenidos.model.js')(sequelize, Sequelize, DataTypes);
-db.categorias = require ('./models/categorias.model.js')(sequelize, Sequelize, DataTypes);
-db.actores = require ('./models/actores.model.js')(sequelize, Sequelize, DataTypes);
-db.generos = require ('./models/generos.model.js')(sequelize, Sequelize, DataTypes);
+db.contenidos = require ('./contenidos.model.js')(sequelize, Sequelize, DataTypes);
+db.categorias = require ('./categorias.model.js')(sequelize, Sequelize, DataTypes);
+db.actores = require ('./actores.model.js')(sequelize, Sequelize, DataTypes);
+db.generos = require ('./generos.model.js')(sequelize, Sequelize, DataTypes);
 // relaciones genero tablas auxiliares
 
 const contenidos= db.contenidos;

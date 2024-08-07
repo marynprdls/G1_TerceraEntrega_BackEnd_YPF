@@ -1,3 +1,4 @@
+use trailerflix;
 -- Insertar en la tabla `actores`
 INSERT INTO actores (nameact) VALUES
 ('Leonardo DiCaprio'),

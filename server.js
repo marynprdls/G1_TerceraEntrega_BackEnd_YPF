@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const PORT = config.PORT;
 
 // database
-const db = require("./src/database/index.js");
+const db = require("./src/database/models/index.js");
 
 db.sequelize.sync().then(() => {
  // initial(); // Just use it in development, at the first time execution!. Delete it in production
@@ -44,7 +44,7 @@ require ('./controllers/contenido_generos.js')(app);
 ENDPOINTS
 ///////
 
-// Ver información de películas y series.
+// 1 - Ver información de películas y series.
 http://localhost:3008/api/contenido/contenidos ---->(get)
 */
 
@@ -53,16 +53,23 @@ const content= require ('./controllers/contenidos.js');
 app.use('/api/contenido', content);
 
 /*
-Ver información de actrices/actores y sus trabajos fílmicos.
+2- Ver información de actrices/actores y sus trabajos fílmicos.
 //llamar a controlador contenido_actores 
 
 
-Filtrar por una película o serie específica.
+3- Filtrar por una película o serie específica.
+// agregar endpoint en controlador contenidos, parecido al busqueda por id
 
 
-Ver solo películas.
+4- Ver solo películas.
 Ver solo series.
-Otros endpoints que consideres necesarios.
+
+// agregar endpoint en controlador categorias. include contenidos
+
+
+
+5- ver contenido por gener0
+// llamar al controler contenido_generos
 */
 
 

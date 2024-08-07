@@ -1,7 +1,11 @@
 const express = require('express');
 const routerContenidos = express.Router();
-
-const Contenidos = require('../src/database/models/contenidos.model.js');
+const db = require("../src/database/models");
+    const Generos = db.generos;
+    const Contenidos = db.contenidos;
+    const categoria = db.categorias;
+    const reparto = db.actores;
+    const Op = db.Op;
 
 // CREATE
 // Creación de contenido /api/contenido/contenidos
@@ -31,7 +35,27 @@ routerContenidos.post('/contenidos', async(req, res) => {
 // Obtener todos los contenidos  /api/contenido/contenidos
 routerContenidos.get('/contenidos', async(req, res) => {
     try{
-        const content = await Contenidos.findAll();
+        const content = await Contenidos.findAll({
+            include:[{
+                    model:reparto,
+                    //cambiarle al nombre en la presentacion
+                    //atributos del contenido
+                    attributes: ['nameact'],
+                    through:{
+                        // si no tiene nada [] no se incluye atributos de la tabla union
+                        attributes: []
+                    }
+                },{
+                    model:Generos,
+                    //cambiarle al nombre en la presentacion
+                    //atributos del contenido
+                    attributes: ['namegender'],
+                    through:{
+                        // si no tiene nada [] no se incluye atributos de la tabla union
+                        attributes: []
+                    }
+                }]
+            });
         res.json(content);
     } catch (error){
         console.error('Error al consultar los contenidos:', error);

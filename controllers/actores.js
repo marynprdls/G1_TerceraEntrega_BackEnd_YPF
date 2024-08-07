@@ -1,7 +1,11 @@
 const express = require('express');
 const ActoresRouter = express.Router();
-
-const Actores = require('../src/database/models/actores.model.js');
+const db = require("../src/database/models");
+    const Generos = db.generos;
+    const Contenidos = db.contenidos;
+    const categoria = db.categorias;
+    const Actores = db.actores;
+    const Op = db.Op;
 
 // INDEX /api/reparto
 // Obtener todos los actores/actrices
