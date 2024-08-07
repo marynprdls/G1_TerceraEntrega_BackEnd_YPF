@@ -81,7 +81,7 @@ routerContenidos.get('/:id', async (req, res) => {
 
 // 3- Filtrar por una película o serie específica.
 // READ /api/contenido/titulo/Inception
-routerContenidos.get('/titulo/:titulo?', async (req, res) => {
+routerContenidos.get('/titulo/:titulo', async (req, res) => {
     try{
         // Obtener el título de los parámetros de consulta
         const titulo = req.params.titulo;
