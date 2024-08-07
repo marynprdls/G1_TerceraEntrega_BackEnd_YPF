@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 /*
 
 
-const cat =require ('./controllers/categoria.js');
+
 require ('./controllers/generos.js')(app);
 require ('./controllers/actores.js')(app);
 
@@ -55,35 +55,35 @@ app.use('/api/contenido', content);
 /*
 2- Ver información de actrices/actores y sus trabajos fílmicos.
 //llamar a controlador contenido_actores 
+// Obtener todos los contenidos según actor/Actriz
+//GET /api/contenido_actores/reparto/contenido
+*/
+const contentcast= require ('./controllers/contenido_actores.js');
 
+app.use('/api/contenido_actores', contentcast);
 
+/*
 3- Filtrar por una película o serie específica.
-// agregar endpoint en controlador contenidos, parecido al busqueda por id
-
-
-4- Ver solo películas.
-Ver solo series.
-
-// agregar endpoint en controlador categorias. include contenidos
-
-
-
-5- ver contenido por gener0
-// llamar al controler contenido_generos
+// endpoint definido en controlador contenidos
+// READ /api/contenido/titulo/Inception
 */
 
 
+/*
+4- Ver solo películas.
+Ver solo series.
 
+// endpoint definido en controlador categorias.
+// READ /api/categoria/nombrecategoria/serie
+// READ /api/categoria/nombrecategoria/pelicula
+*/
+const cat =require ('./controllers/categoria.js');
+app.use('/api/categoria', cat);
 
-
-
-
-
-
-
-
-
-
+/*
+5- ver contenido por gener0
+// llamar al controler contenido_generos
+*/
 
 //respuesta para rutas inexistentes 
 
