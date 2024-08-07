@@ -33,7 +33,7 @@ module.exports = (sequelize, Sequelize, DataTypes) => {
         }
     },
     { 
-        timestamps: true,
+        timestamps: false,
         underscored: true,
     }
 
