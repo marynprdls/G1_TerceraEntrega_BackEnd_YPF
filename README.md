@@ -31,9 +31,9 @@
 | GET    | `/api/contenido/contenidos`        |Ver información de películas y series.                |
 | GET    | `/api/contenido_actores/reparto/contenido`|  Ver información de actrices/actores y sus trabajos fílmicos.     |
 | GET    | `/computadoras/search` | Filtrar por una película o serie específica.    |
-| POST   | `/computadoras`        | Ver solo películas.                 |
-| PUT    | `/computadoras/:codigo`    |Ver solo series.             |
-| DELETE | `/computadoras/:codigo`    | ver contenido por genero            |
+| GET    | `/computadoras`        | Ver solo películas.                 |
+| GET    | `/computadoras/:codigo`    |Ver solo series.             |
+| GET    | `/computadoras/:codigo`    | ver contenido por genero            |
 
 
 ### Endpoints 
