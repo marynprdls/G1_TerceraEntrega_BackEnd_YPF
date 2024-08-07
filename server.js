@@ -38,6 +38,25 @@ require ('./controllers/actores.js')(app);
 require ('./controllers/contenido_actores.js')(app);
 require ('./controllers/contenido_generos.js')(app);
 */
+/* 
+ENDPOINTS
+Ver información de películas y series.
+Ver información de actrices/actores y sus trabajos fílmicos.
+Filtrar por una película o serie específica.
+Ver solo películas.
+Ver solo series.
+Otros endpoints que consideres necesarios.
+*/
+
+
+
+
+
+
+
+
+
+
 
 
 
