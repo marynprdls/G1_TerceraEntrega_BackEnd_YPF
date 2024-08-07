@@ -26,17 +26,8 @@ app.get('/', (req, res) => {
     res.status(200).end('Bienvenid@ a la API');
 });
 
-//rutas apps
+
 //rutas
-/*
-
-
-
-require ('./controllers/generos.js')(app);
-require ('./controllers/actores.js')(app);
-
-require ('./controllers/contenido_generos.js')(app);
-*/
 
 /* 
 ENDPOINTS
@@ -49,14 +40,6 @@ http://localhost:3008/api/contenido/contenidos ---->(get)
 const content= require ('./controllers/contenidos.js');
 
 app.use('/api/contenido', content);
-
-const content2= require ('./controllers/generos.js');
-
-app.use('/api/genero', content2);
-
-const content3= require ('./controllers/contenido_generos.js');
-
-app.use('/api/contenidosgeneros', content3);
 
 
 /*
@@ -89,8 +72,27 @@ app.use('/api/categoria', cat);
 
 /*
 5- ver contenido por gener0
-// llamar al controler contenido_generos
+// llamar al controler contenido_generos y controler generos
 */
+
+// endpoint para generos
+const content2= require ('./controllers/generos.js');
+
+app.use('/api/genero', content2);
+
+//Endpoint relacion entre contenidos y generos
+// Endpoint devuelve contenidos según el genero
+ //api/contenidosgeneros/genero 
+const content3= require ('./controllers/contenido_generos.js');
+
+app.use('/api/contenidosgeneros', content3);
+
+//Endpoint para reparto
+
+const content4=require ('./controllers/actores.js');
+
+app.use('/api/reparto', content4);
+
 
 //respuesta para rutas inexistentes 
 

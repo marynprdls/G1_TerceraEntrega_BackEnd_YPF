@@ -8,6 +8,8 @@ const db = require("../src/database/models");
     const Actores = db.actores;
     const Op = db.Op;
 
+// Endpoint devuelve contenidos según el genero
+ //api/contenidosgeneros/genero   
 ContenidoGenerosRouter.get('/genero', (req, res) => {
         Generos.findAll({
             include:{
@@ -26,7 +28,8 @@ ContenidoGenerosRouter.get('/genero', (req, res) => {
                     })
                 })
         })
-
+// Endpoint devuelve los generos de cada contenido
+ //api/contenidosgeneros/contenido
 ContenidoGenerosRouter.get('/contenido', (req, res) => {
     Contenido.findAll({
         include:{

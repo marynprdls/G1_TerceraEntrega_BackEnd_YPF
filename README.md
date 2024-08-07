@@ -30,10 +30,10 @@
 |--------|------------------------|--------------------------------------------------|
 | GET    | `/api/contenido/contenidos`        |Ver información de películas y series.                |
 | GET    | `/api/contenido_actores/reparto/contenido`|  Ver información de actrices/actores y sus trabajos fílmicos.     |
-| GET    | `/computadoras/search` | Filtrar por una película o serie específica.    |
-| GET    | `/computadoras`        | Ver solo películas.                 |
-| GET    | `/computadoras/:codigo`    |Ver solo series.             |
-| GET    | `/computadoras/:codigo`    | ver contenido por genero            |
+| GET    | `/api/contenido/titulo/:search` | Filtrar por una película o serie específica.    |
+| GET    | `/api/categoria/nombrecategoria/pelicula`        | Ver solo películas.                 |
+| GET    | `/api/categoria/nombrecategoria/serie`    |Ver solo series.             |
+| GET    | `api/contenidosgeneros/genero`    | ver contenido por genero            |
 
 
 ### Endpoints 
